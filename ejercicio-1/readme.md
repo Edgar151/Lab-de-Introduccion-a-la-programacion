@@ -1,171 +1,158 @@
-📌 1. ¿Qué es un entorno virtual?
+🐍 Creación y Uso de Entorno Virtual en Python + Instalación de Numpy (Windows)
 
-Un entorno virtual (venv) es una carpeta especial que contiene una instalación aislada de Python.
+Este instructivo documenta paso a paso cómo crear, activar y verificar un entorno virtual (venv) en Python, instalar numpy y configurarlo correctamente en VS Code, incluyendo capturas reales del proceso.
 
-Sirve para:
+📌 ¿Qué es un entorno virtual?
 
-Instalar librerías sin afectar otras instalaciones del sistema.
+Un entorno virtual es un espacio aislado donde Python instala librerías solo para un proyecto, evitando conflictos con:
 
-Tener dependencias diferentes para cada proyecto.
+Otras versiones de Python
 
-Trabajar de manera profesional y organizada.
+Librerías globales
 
-Evitar conflictos entre versiones de librerías.
+Otros proyectos
 
-📌 Regla profesional:
-Cada proyecto debe tener su propio entorno virtual.
+Es una práctica fundamental en el desarrollo profesional.
 
-🧩 PROCESO PASO A PASO
-🔹 2. Verificar que Python esté instalado
-Abrir la terminal (CMD)
+✅ Requisitos
 
-Presiona Win + R
+Windows
 
-Escribe:
+Python 3.11 o superior
 
-cmd
+CMD o PowerShell
 
+VS Code
 
-Presiona Enter
-
-Verificar versión de Python
+Verificar instalación de Python:
+'''powershell
 python --version
-
-
-Si aparece algo como:
-
-Python 3.11.9
-
-
-Entonces está correctamente instalado.
-
-⚠️ Si no funciona, descarga Python desde:
-https://www.python.org
-
-Y marca la opción:
-
-✔ Add Python to PATH
-
-🔹 3. Crear la carpeta del proyecto
+'''
+📁 1. Crear y entrar a la carpeta del proyecto
 cd C:\
-mkdir python_proyecto
-cd python_proyecto
+mkdir python\entorno1
+cd python\entorno1
 
-Explicación:
-
-cd C:\ → Te lleva al disco C
-
-mkdir python_proyecto → Crea la carpeta
-
-cd python_proyecto → Entra a la carpeta
-
-🔹 4. Crear el entorno virtual
+🧱 2. Crear el entorno virtual
 python -m venv env
 
-Explicación:
 
--m venv → Ejecuta el módulo que crea entornos virtuales
-
-env → Nombre del entorno (puede cambiarse, pero normalmente se usa "env")
-
-Se creará una carpeta llamada:
+Esto crea la carpeta:
 
 env/
 
-🔹 5. Activar el entorno virtual (Windows)
+
+Que contiene la instalación aislada de Python.
+
+▶️ 3. Activar el entorno virtual
+
+En Windows:
+
 env\Scripts\activate
 
 
-Si se activa correctamente verás algo como:
+Si se activa correctamente aparecerá:
 
-(env) C:\python_proyecto>
+(env) C:\python\entorno1>
 
 
-Eso significa que el entorno está activo.
+📸 Captura – Entorno virtual activo y verificación con where python:
 
-🔹 6. Verificar que estás usando el Python del entorno
+🔎 4. Verificar que se está usando el Python del entorno
 where python
 
 
-Debe aparecer algo como:
+Debe mostrar:
 
-C:\python_proyecto\env\Scripts\python.exe
+C:\python\entorno1\env\Scripts\python.exe
 
 
-Esto confirma que estás usando el entorno virtual y no el Python global.
+Esto confirma que NO estás usando el Python global.
 
-📷 Evidencia 1 – Verificación del entorno en la terminal
-
-🔹 7. Actualizar pip
+🔄 5. Actualizar pip
 python -m pip install --upgrade pip
 
-🔹 8. Instalar librerías (ejemplo: numpy)
-pip install numpy
+
+En tu caso se actualizó de:
+
+pip 24.0 → pip 26.0.1
+
+📦 6. Instalar numpy dentro del entorno
+python -m pip install numpy
 
 
-Verificar instalación:
+📸 Captura – Instalación correcta de numpy:
+
+Verificación adicional:
 
 pip list
 
+🧠 7. Probar numpy desde Python
 
-Debe aparecer:
+Entrar al intérprete:
 
-numpy
+python
 
-📷 Evidencia 2 – Instalación de numpy
 
-🔹 9. Abrir proyecto en Visual Studio Code
+Luego escribir:
 
-Desde la carpeta del proyecto:
+import numpy as np
+print(np.random.randint(1, 101))
+
+
+Ejemplo de salida:
+
+71
+
+
+Salir del intérprete:
+
+exit()
+
+💻 8. Configurar el intérprete en VS Code
+
+Abrir el proyecto en VS Code:
 
 code .
 
 
-⚠️ Si no funciona, reinstala VS Code y marca:
-
-✔ Add to PATH
-
-🔹 10. Seleccionar el intérprete correcto en VS Code
-
-Presiona:
+Presionar:
 
 Ctrl + Shift + P
 
 
-Escribe:
+Escribir:
 
 Python: Select Interpreter
 
 
-Selecciona el que tenga la ruta:
+Seleccionar:
 
-python_proyecto\env\Scripts\python.exe
-
-📷 Evidencia 3 – Selección del intérprete
-
-🔹 11. Probar que todo funciona
-
-Crea un archivo llamado:
-
-test.py
+Python 3.11.9 (env) \Scripts\python.exe
 
 
-Y escribe:
+📸 Captura – Selección del intérprete correcto:
+
+🧪 9. Probar desde un archivo .py
+
+Crear archivo:
+
+New-Item mat.py
+
+
+Contenido del archivo:
 
 import numpy as np
 
-print("Entorno funcionando correctamente")
-print(np.random.randint(1, 101))
+numero = np.random.randint(1, 101)
+print(numero)
 
 
-Ejecuta el archivo:
+Ejecutar:
 
-python test.py
+python mat.py
 
-
-Si no hay errores, todo está funcionando correctamente.
-
-🔹 12. Desactivar el entorno virtual
+🚫 10. Desactivar el entorno virtual
 
 Cuando termines:
 
@@ -174,38 +161,32 @@ deactivate
 
 El (env) desaparecerá de la terminal.
 
-✅ CONCLUSIÓN
+📂 11. Ignorar el entorno en Git
 
-Ahora sabes:
+Crear .gitignore y agregar:
 
-✔ Verificar Python
+env/
 
-✔ Crear una carpeta de proyecto
+✅ Conclusión
 
-✔ Crear un entorno virtual
-
-✔ Activarlo
-
-✔ Verificar que funciona
-
-✔ Instalar librerías
-
-✔ Usarlo en VS Code
-
-✔ Desactivarlo
+✔ Se creó correctamente el entorno virtual
+✔ Se activó correctamente
+✔ Se verificó con where python
+✔ Se actualizó pip
+✔ Se instaló numpy correctamente
+✔ Se configuró el intérprete en VS Code
+✔ Se probó el funcionamiento con código real
 
 🎯 Importancia Profesional
 
-El uso de entornos virtuales es una práctica fundamental en:
+El uso de entornos virtuales es obligatorio en:
 
-Desarrollo profesional
+Desarrollo de software
 
 Ciencia de datos
 
 Ingeniería en software
 
-Desarrollo web
+Proyectos académicos universitarios
 
-Proyectos académicos
-
-Permite mantener proyectos organizados, limpios y sin conflictos.
+Permite mantener proyectos organizados, reproducibles y sin conflictos.
