@@ -1,8 +1,8 @@
-🐍 Creación y Uso de Entorno Virtual en Python + Instalación de Numpy (Windows)
+#  🐍 Creación y Uso de Entorno Virtual en Python + Instalación de Numpy (Windows)
 
 Este instructivo documenta paso a paso cómo crear, activar y verificar un entorno virtual (venv) en Python, instalar numpy y configurarlo correctamente en VS Code, incluyendo capturas reales del proceso.
 
-📌 ¿Qué es un entorno virtual?
+##  📌 ¿Qué es un entorno virtual?
 
 Un entorno virtual es un espacio aislado donde Python instala librerías solo para un proyecto, evitando conflictos con:
 
@@ -24,18 +24,19 @@ CMD o PowerShell
 
 VS Code
 
-Verificar instalación de Python:
-'''powershell
+### Verificar instalación de Python:
+ ```bash
 python --version
-'''
-📁 1. Crear y entrar a la carpeta del proyecto
-cd C:\
-mkdir python\entorno1
-cd python\entorno1
+```
+### 📁 1. Crear y entrar a la carpeta del proyecto
+```bash
+cd C:\mkdir python\entorno1
+```
 
-🧱 2. Crear el entorno virtual
+### 🧱 2. Crear el entorno virtual
+```bash
 python -m venv env
-
+```
 
 Esto crea la carpeta:
 
@@ -47,9 +48,9 @@ Que contiene la instalación aislada de Python.
 ▶️ 3. Activar el entorno virtual
 
 En Windows:
-
+```bash
 env\Scripts\activate
-
+```
 
 Si se activa correctamente aparecerá:
 
