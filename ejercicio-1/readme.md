@@ -56,10 +56,11 @@ Si se activa correctamente aparecerá:
 
 (env) C:\python\entorno1>
 
+![Descripción de la imagen](assets/WhatsApp%20Image%202026-02-05%20at%2011.04.09%20AM.jpeg)
 
-📸 Captura – Entorno virtual activo y verificación con where python:
 
-🔎 4. Verificar que se está usando el Python del entorno
+
+### 🔎 4. Verificar que se está usando el Python del entorno
 where python
 
 
@@ -71,24 +72,26 @@ C:\python\entorno1\env\Scripts\python.exe
 Esto confirma que NO estás usando el Python global.
 
 🔄 5. Actualizar pip
+```bash
 python -m pip install --upgrade pip
-
+```
 
 En tu caso se actualizó de:
 
 pip 24.0 → pip 26.0.1
 
-📦 6. Instalar numpy dentro del entorno
+### 📦 6. Instalar numpy dentro del entorno
 python -m pip install numpy
 
+![Imagen 1](assets/WhatsApp%20Image%202026-02-05%20at%2011.21.26%20AM.jpeg)
 
-📸 Captura – Instalación correcta de numpy:
 
 Verificación adicional:
-
+```bash
 pip list
+```
 
-🧠 7. Probar numpy desde Python
+### 🧠 7. Probar numpy desde Python
 
 Entrar al intérprete:
 
@@ -96,10 +99,10 @@ python
 
 
 Luego escribir:
-
+```bash
 import numpy as np
 print(np.random.randint(1, 101))
-
+```
 
 Ejemplo de salida:
 
@@ -107,10 +110,10 @@ Ejemplo de salida:
 
 
 Salir del intérprete:
-
+``` bash
 exit()
-
-💻 8. Configurar el intérprete en VS Code
+```
+### 💻 8. Configurar el intérprete en VS Code
 
 Abrir el proyecto en VS Code:
 
@@ -123,18 +126,18 @@ Ctrl + Shift + P
 
 
 Escribir:
-
+```bash
 Python: Select Interpreter
-
+```
 
 Seleccionar:
 
 Python 3.11.9 (env) \Scripts\python.exe
 
 
-📸 Captura – Selección del intérprete correcto:
 
-🧪 9. Probar desde un archivo .py
+![Imagen 2](assets/WhatsApp%20Image%202026-02-05%20at%2011.22.47%20AM.jpeg)
+### 🧪 9. Probar desde un archivo .py
 
 Crear archivo:
 
@@ -142,27 +145,27 @@ New-Item mat.py
 
 
 Contenido del archivo:
-
+```bash
 import numpy as np
 
 numero = np.random.randint(1, 101)
 print(numero)
-
+```
 
 Ejecutar:
 
 python mat.py
 
-🚫 10. Desactivar el entorno virtual
+### 🚫 10. Desactivar el entorno virtual
 
 Cuando termines:
-
+```bash
 deactivate
-
+```
 
 El (env) desaparecerá de la terminal.
 
-📂 11. Ignorar el entorno en Git
+### 📂 11. Ignorar el entorno en Git
 
 Crear .gitignore y agregar:
 
