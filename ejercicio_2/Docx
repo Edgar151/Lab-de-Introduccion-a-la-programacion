@@ -1,1 +1,100 @@
+explicacion del codigo por Edgar Estrella osea yo mero
 
+comenzamos el codigo declarando una variable llamada numero en entero con un imput 
+para que ingresen el numero que quiera convertir
+declaramos un +a variable llamada original, para que el numero se guerde en esa variable y 
+no cambie su valor 
+
+bash
+numero = int(input("Ingresa un número: "))
+original = numero
+
+##binario
+
+declaramos una variable llamada binario en limpio que necesitamos en el if
+declaramos un if donde comparamos si la variable numero es igual a 0 de el valor 0 
+sin embargo si es diferente de 0 va a hacer un ciclo que se repetir hasta que la lavariable
+sea mayor a 0 y se declara una varibale llamada residuo para que se divida entre 2
+y vaya poniendo el residuo ya sea 0 o 1 despues declaramos otra variable llamada binario
+la cual vamos a poner en una cadena que seria el residuo mas la variable binario para cada
+vez que se repita y ese numero lo dividimos dos veces entre 2 barras para que se divida 
+en numeros enteros y elimine decimales despues escribimos ponemos 
+un print para escribir la variable binario que seria ya el resultado
+
+# ------ Binario --------
+binario = ""
+
+if numero == 0:
+    binario = "0"
+else:
+    while numero > 0:
+        residuo = numero % 2
+        binario = str(residuo) + binario
+        numero = numero // 2
+
+print("Binario:", binario)
+
+##octal
+declaramos la variable original = a numero para que tenga el mismo valor el numero
+reescribimos el valor a resisiduo para que comienze en 0 y no tenga otro valor
+declaramos una variable llamada octal en limpio que necesitamos en el if
+declaramos una variable llamada dijitos con los valores de el formato octal "01234567"
+que esto seria una cadena en la cual vamos a tomar estos valores en el if
+declaramos un if donde comparamos si la variable numero es igual a 0 de el valor 0 
+sin embargo si es diferente de 0 va a hacer un ciclo que se repetir hasta que la lavariable
+sea mayor a 0 y se declara una varibale llamada residuo para que se divida entre 8
+aqui vamos a crear una variable llamada octal vamos a poner la cadena llamada digitos 
+para que el residuo vaya tomando el valor de los digitos y se vaya sobre escribiendo 
+y le agregamos la varibale octal para las veces que se repita 
+vez que se repita y ese numero lo dividimos dos veces entre 2 barras para que se divida 
+en numeros enteros y elimine decimales despues escribimos ponemos 
+un print para escribir la variable octal que seria ya el resultado
+
+#----- octal-----------
+numero = original
+residuo = 0
+octal= ""
+digitos = "01234567"
+
+if numero == 0:
+    octal = "0"
+else:
+    while numero > 0:
+        residuo = numero % 8
+        octal = digitos[residuo] + octal
+        numero = numero // 8
+print("octal:", octal)
+
+
+##Hexagecimal
+
+declaramos la variable original = a numero para que tenga el mismo valor el numero
+reescribimos el valor a resisiduo para que comienze en 0 y no tenga otro valor
+declaramos una variable llamada hexagecimal en limpio que necesitamos en el if
+declaramos una variable llamada dijitos con los valores de el formato hexagecimal
+"0123456789ABCDEF"
+que esto seria una cadena en la cual vamos a tomar estos valores en el if
+declaramos un if donde comparamos si la variable numero es igual a 0 de el valor 0 
+sin embargo si es diferente de 0 va a hacer un ciclo que se repetir hasta que la lavariable
+sea mayor a 0 y se declara una varibale llamada residuo para que se divida entre 16
+aqui vamos a crear una variable llamada hexagecimal vamos a poner la cadena llamada digitos 
+para que el residuo vaya tomando el valor de los digitos y se vaya sobre escribiendo 
+y le agregamos la varibale hexagecimal para las veces que se repita 
+vez que se repita y ese numero lo dividimos dos veces entre 2 barras para que se divida 
+en numeros enteros y elimine decimales despues escribimos ponemos 
+un print para escribir la variable hexagecimal que seria ya el resultado
+
+# --------- Hexadecimal ---------
+numero = original
+hexagecimal = ""
+digitos = "0123456789ABCDEF"
+residuo = 0
+if numero == 0:
+    hexagecimal = "0"
+else:
+    while numero > 0:
+        residuo = numero % 16
+        hexagecimal = digitos[residuo] + hexagecimal
+        numero = numero // 16
+
+print("Hexadecimal:", hexagecimal)
