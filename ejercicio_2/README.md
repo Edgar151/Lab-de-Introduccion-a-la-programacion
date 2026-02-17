@@ -39,7 +39,7 @@ Guardamos el valor en original porque después vamos a modificar numero.
 
 Así conservamos el valor inicial para reutilizarlo.
 
-📍 3. Conversión a Binario (Base 2)
+## 📍 3. Conversión a Binario (Base 2)
 🔢 ¿Cómo funciona?
 
 Para convertir a binario:
@@ -52,7 +52,8 @@ Repetimos hasta que el número sea 0.
 
 Los residuos se leen de abajo hacia arriba.
 
-💻 Código
+### 💻 Código
+```bash
 # ------ Binario --------
 binario = ""
 
@@ -65,7 +66,7 @@ else:
         numero = numero // 2
 
 print("Binario:", binario)
-
+```
 🧠 Explicación Paso a Paso
 
 binario = ""
@@ -86,7 +87,7 @@ Agregamos el residuo al inicio de la cadena.
 numero = numero // 2
 División entera para eliminar decimales.
 
-📍 4. Conversión a Octal (Base 8)
+## 📍 4. Conversión a Octal (Base 8)
 🔢 ¿Cómo funciona?
 
 Se divide el número entre 8.
@@ -95,7 +96,8 @@ Se guarda el residuo.
 
 Se usa una cadena "01234567" para representar los valores válidos en base 8.
 
-💻 Código
+### 💻 Código
+```bash 
 #----- Octal-----------
 numero = original
 residuo = 0
@@ -111,7 +113,7 @@ else:
         numero = numero // 8
 
 print("Octal:", octal)
-
+```
 🧠 Explicación Paso a Paso
 
 numero = original
@@ -129,7 +131,7 @@ Usamos el residuo como índice en la cadena.
 numero = numero // 8
 División entera para continuar el proceso.
 
-📍 5. Conversión a Hexadecimal (Base 16)
+## 📍 5. Conversión a Hexadecimal (Base 16)
 🔢 ¿Cómo funciona?
 
 Se divide el número entre 16.
@@ -150,7 +152,8 @@ Los números mayores a 9 se representan con letras:
 
 15 = F
 
-💻 Código
+### 💻 Código
+```bash
 # --------- Hexadecimal ---------
 numero = original
 hexagecimal = ""
@@ -166,7 +169,7 @@ else:
         numero = numero // 16
 
 print("Hexadecimal:", hexagecimal)
-
+```
 🧠 Explicación Paso a Paso
 
 digitos = "0123456789ABCDEF"
@@ -181,7 +184,7 @@ Convertimos el residuo en su representación hexadecimal.
 numero = numero // 16
 División entera para continuar el ciclo.
 
-📍 6. Resultado Final
+## 📍 6. Resultado Final
 
 El programa mostrará algo así:
 
@@ -190,7 +193,7 @@ Binario: 11001
 Octal: 31
 Hexadecimal: 19
 
-📍 7. Conclusión
+## 📍 7. Conclusión
 
 Este programa demuestra cómo funcionan internamente los sistemas de numeración:
 
