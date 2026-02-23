@@ -1,14 +1,14 @@
 # 🔐 Sistema de Login en Python
-# Autor: Edgar Estrella
-# --------------------------------------------------
+## Autor: Edgar Estrella
+---
 # 📘 DESCRIPCIÓN GENERAL
-# Este programa simula un sistema básico de autenticación.
-# Permite al usuario ingresar credenciales y valida:
-#   - Formato del usuario
-#   - Reglas de seguridad de la contraseña
-#   - Coincidencia con credenciales registradas
-#   - Límite máximo de 3 intentos
-# --------------------------------------------------
+### Este programa simula un sistema básico de autenticación.
+### Permite al usuario ingresar credenciales y valida:
+###   - Formato del usuario
+###   - Reglas de seguridad de la contraseña
+###   - Coincidencia con credenciales registradas
+###   - Límite máximo de 3 intentos
+---
 
 ---
 
