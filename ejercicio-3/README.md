@@ -8,7 +8,6 @@
 ###   - Reglas de seguridad de la contraseña
 ###   - Coincidencia con credenciales registradas
 ###   - Límite máximo de 3 intentos
----
 
 ---
 
