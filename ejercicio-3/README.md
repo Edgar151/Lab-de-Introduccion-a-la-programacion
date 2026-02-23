@@ -14,24 +14,24 @@
 
 ## 📌 1️⃣ VARIABLES GLOBALES
 
-# Estas variables representan las credenciales registradas.
-# En un sistema real vendrían de una base de datos.
+### Estas variables representan las credenciales registradas.
+### En un sistema real vendrían de una base de datos.
 
 ```bash
 usuario = "admin"
 contraseña = "Admin2026"
 ```
 
-# Variables auxiliares que almacenan lo que el usuario escribe.
-# Se inicializan vacías porque aún no hay entrada.
+### Variables auxiliares que almacenan lo que el usuario escribe.
+### Se inicializan vacías porque aún no hay entrada.
 
 ```bash
 usuario_1 = ""
 contraseña_1 = ""
 ```
 
-# Contador de intentos fallidos.
-# Se usa para limitar el acceso a máximo 3 intentos.
+### Contador de intentos fallidos.
+### Se usa para limitar el acceso a máximo 3 intentos.
 
 ```bash
 intentos = 0
@@ -41,15 +41,15 @@ intentos = 0
 
 ## 🧠 2️⃣ FUNCIONES DE VALIDACIÓN
 
-# Estas funciones separan la lógica de validación.
-# Esto mejora la organización y permite reutilizar código.
+### Estas funciones separan la lógica de validación.
+### Esto mejora la organización y permite reutilizar código.
 
 ---
 
 ### 🔎 contar_pass()
 
-# Verifica que la contraseña tenga mínimo 8 caracteres.
-# Utiliza len() para medir la longitud del string.
+### Verifica que la contraseña tenga mínimo 8 caracteres.
+### Utiliza len() para medir la longitud del string.
 
 ```bash
 def contar_pass(contraseña_1):
@@ -61,8 +61,8 @@ def contar_pass(contraseña_1):
 
 ### 🔢 numero()
 
-# Verifica que exista al menos un número.
-# any() recorre cada carácter y evalúa si alguno cumple la condición.
+### Verifica que exista al menos un número.
+### any() recorre cada carácter y evalúa si alguno cumple la condición.
 
 ```bash
 def numero(contraseña_1):
@@ -74,8 +74,8 @@ def numero(contraseña_1):
 
 ### 🔤 letra()
 
-# Verifica que exista al menos una letra.
-# isalpha() detecta caracteres alfabéticos.
+### Verifica que exista al menos una letra.
+### isalpha() detecta caracteres alfabéticos.
 
 ```bash
 def letra(contraseña_1):
@@ -87,9 +87,9 @@ def letra(contraseña_1):
 
 ## 🔁 3️⃣ CICLO PRINCIPAL
 
-# while intentos < 3:
-# El programa se ejecuta mientras los intentos sean menores a 3.
-# Cada fallo aumenta el contador.
+### while intentos < 3:
+### El programa se ejecuta mientras los intentos sean menores a 3.
+### Cada fallo aumenta el contador.
 
 ```bash
 while intentos < 3:
@@ -99,9 +99,9 @@ while intentos < 3:
 
 ## 👤 4️⃣ VALIDACIÓN DE USUARIO
 
-# input() captura lo que el usuario escribe.
-# isalnum() permite únicamente letras y números.
-# Evita caracteres especiales y símbolos.
+### input() captura lo que el usuario escribe.
+### isalnum() permite únicamente letras y números.
+### Evita caracteres especiales y símbolos.
 
 ```bash
 usuario_1 = input("Ingresa el Usuario:\n")
@@ -114,9 +114,9 @@ if not usuario_1.isalnum():
 
 ## 🔐 5️⃣ VALIDACIÓN DE CONTRASEÑA
 
-# Se solicita la contraseña.
-# Luego se ejecutan las funciones creadas previamente.
-# También se valida que no contenga espacios.
+### Se solicita la contraseña.
+### Luego se ejecutan las funciones creadas previamente.
+### También se valida que no contenga espacios.
 
 ```bash
 contraseña_1 = input("Ingresa tu contraseña:\n")
@@ -136,9 +136,9 @@ if " " in usuario_1 or " " in contraseña_1:
 
 ## 🆚 6️⃣ COMPARACIÓN DE CREDENCIALES
 
-# Se comparan los datos ingresados con los registrados.
-# Si el usuario no coincide, se muestra error.
-# Si la contraseña no coincide, también.
+### Se comparan los datos ingresados con los registrados.
+### Si el usuario no coincide, se muestra error.
+### Si la contraseña no coincide, también.
 
 ```bash
 if usuario != usuario_1:
@@ -152,8 +152,8 @@ elif contraseña != contraseña_1:
 
 ## ✅ 7️⃣ ACCESO CORRECTO
 
-# Si ambos coinciden exactamente,
-# se concede acceso y se rompe el ciclo con break.
+### Si ambos coinciden exactamente,
+### se concede acceso y se rompe el ciclo con break.
 
 ```bash
 if usuario_1 == usuario and contraseña_1 == contraseña:
@@ -165,8 +165,8 @@ if usuario_1 == usuario and contraseña_1 == contraseña:
 
 ## 🚫 8️⃣ INTENTO FALLIDO
 
-# Si no coinciden, entra en el else.
-# Se incrementa el contador intentos en +1.
+### Si no coinciden, entra en el else.
+### Se incrementa el contador intentos en +1.
 
 ```bash
 else:
@@ -178,8 +178,8 @@ else:
 
 ## ⛔ 9️⃣ BLOQUEO DEL SISTEMA
 
-# Cuando intentos alcanza 3,
-# el sistema se bloquea y muestra mensaje final.
+### Cuando intentos alcanza 3,
+### el sistema se bloquea y muestra mensaje final.
 
 ```bash
 if intentos >= 3:
