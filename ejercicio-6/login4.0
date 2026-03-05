@@ -1,0 +1,253 @@
+usuario = "admin"
+contraseña = "Admin2026"
+usuario_1 = ""
+contraseña_1 = ""
+intentos = 0
+menu=0
+acceso = 1
+acceso_1 = 1 
+acceso_2 = 1
+acceso_3 = 1
+numero_1 = 0
+
+def contar_pass(contraseña_1):
+     numero_letras = len(contraseña_1)
+     if numero_letras < 8:
+          print("La contraseña debe tener minimo 8 caracteres")
+
+def numero(contraseña_1):
+    if not any(c.isdigit() for c in contraseña_1):
+        print("La contraseña debe tener al menos un numero")
+
+def letra(contraseña_1):
+    if not any(c.isalpha() for c in contraseña_1):
+        print("La contraseña debe contener al menos una letra")
+
+while intentos < 3:
+
+    usuario_1 = input("ingresa el Usuario:\n")
+    if not usuario_1.isalnum():
+            print("solo se permite alfanumerico")
+            
+    contraseña_1 = input("ingresa tu contraseña\n")
+
+    contar_pass(contraseña_1)
+    numero(contraseña_1)
+    letra(contraseña_1)
+
+    if not contraseña_1.isalnum():
+            print("solo se permite alfanumerico")
+    if " " in usuario_1 or " " in contraseña_1:
+            print("No se permiten espacios")
+    
+    if usuario != usuario_1:
+         print("el usuario es incorrecto")
+    elif contraseña != contraseña_1: 
+        print("la contraseña es incorrecta")
+    
+    if usuario_1 == usuario and contraseña_1 == contraseña:
+        print("Acceso concedido")
+        acceso = 1
+        while acceso==1:
+            menu = int(input("Ingresa una opcion\n 1 Clasificar numero \n 2 Categoria de edad y permisos \n 3 Calcular tarifa final \n 4 Cerrar sesion \n 5 Salir \n"))
+            match menu:
+                 case 1:
+                    print("elegiste, Claisificar numeros")
+                    while acceso_1==1:
+                        numero = input("Ingresa el numero que quieres clasificar,\n si quieres salir ingresa S:\n")
+                        if numero == "s":
+                            acceso_1 = 0
+                            break
+                        elif int(numero).isdigit():
+                            numero = int(numero)
+                        else:
+                            print("entrada invalida")
+                            break
+                        if numero == 0:
+                            print("El numero es 0 ")
+                        elif numero < 0:
+                            print("El numero es negativo")
+                        elif numero > 0:
+                            print("El numero es positivo")
+
+                        if numero == 0:
+                            print("El numero es 0")
+                        elif numero % 2 == 0:
+                            print("El numero es par")
+                        else:
+                            print("El numero es impar")
+
+                 case 2:
+                    while acceso_2 ==1:
+                        print("elegiste, Categoria de edad y permisos")
+                        edad = int(input("ingresa una edad valida entre 0 a 120\n"))
+
+                        if not (0 <= edad <= 120):
+                            print("Ingresa una edad valida")
+                            continue
+
+                        ine = input("cuantas con Identificacion oficial (S/N),\n")
+
+                        if ine not in ("s", "n"):
+                            print("Ingresa una opcion valida en INE\n")
+                            continue
+
+                        licencia = input("cuentas con licencia de conducir (S/N)\n")
+
+                        if licencia not in ("s", "n"):
+                            print("Ingresa una opcion valida en Licencia\n")
+                            continue
+
+                        print("Datos correctos ✅ \n")
+                    
+                        if 0 <= edad <= 12:
+                            print("Estas en una etapa de niñez, no puedes ingresar\n")
+        
+                        elif 13 <= edad <= 17:
+                            print("Estas en una etapa de adolescencia, puedes registrarte pero no comprar sin tutor\n")
+        
+                        elif 18 <= edad <= 64:
+                            print("Estas en adultez, puedes comprar sin tutor\n")
+        
+                        elif 65 <= edad <= 120:
+                            print("Estas en adulto mayor, tienes derecho a tu compra legal\n")
+
+                        if ine == "s" and edad >= 21:
+                            print("acesso al servicio premium\n")
+                        else:
+                            print("no puedes realizar la compra\n")                        
+
+                        if licencia == "s" and edad >= 18:
+                            print("Si puedes conducir\n")
+                        else:
+                            print("no puedes conducir, no tienes licencia y pude ir contra la ley\n")
+                        
+                        break
+                    
+                 case 3:
+                    acceso_3 = 1
+                    print("elegiste, Calcular tarifa final")
+                    while acceso_3 == 1:
+
+                        servicio = 200
+                        descuento = 0
+                        recargo = 0
+                        porcentaje = 0
+
+                        edad_1 = int(input("Ingresa una edad de 0 a 120: "))
+
+                        if not (0 <= edad_1 <= 120):
+                            print("Ingresa una edad valida")
+                            continue
+                        
+                        dia = input("Ingresa que dia de la semana es:\n 1 para lunes\n 2 para Martes\n 3 para miercoles\n 4 para jueves\n 5 para viernes\n 6 para jueves\n 7 para domingo: ")
+
+                        if dia not in ("1","2","3","4","5","6","7"):
+                            print("Ingresa una opcion valida en dia")
+                            continue
+
+                        estudiante = input("¿Eres estudiante? ingresa (s/n)")
+                        
+                        if estudiante not in("s" , "n", "S", "N"):
+                            print("Ingresa una opcion valida en Estudiante")
+                            continue
+                        
+                        miembro = input("¿Eres miembro?(s/n)")
+
+                        if miembro not in ("s", "n", "S","N"):
+                            print("ingresa una opcion valida en Miembro")
+                            continue
+
+                        metodo = input("Ingresa cual sera tu metodo de pago: E: para efectivo, T: pata tarjeta: ")
+
+                        if metodo not in ("e", "t", "E", "T"):
+                            print("Ingresa un metodo de pago valido")
+                            continue
+
+                        if dia == "6" or dia == "7":
+                            print("se te aplicara un recargo del 10%")
+                            recargo = servicio/100 * 10
+                            servicio += recargo 
+                            print("tu cuenta ahora es de ", servicio)
+
+                        servicio_base = servicio
+
+                        
+                        if 0 <= edad_1 <= 12:
+                            descuento =  servicio * 0.5
+                            servicio = servicio - descuento 
+                            porcentaje =  porcentaje + 50
+                            print(" El descuento aplicado fue de 50%")
+                            print("El total a pagar ahora es: ", servicio)
+                        elif 13 <= edad_1 <= 17:
+                            descuento = servicio * 0.2
+                            servicio = servicio - descuento
+                            porcentaje = porcentaje + 20
+                            print("el descuento aplicado fue de 20%")
+                            print("El total a pagar ahora es: ", servicio)
+                        elif 65<= edad_1 <= 120:
+                            descuento = servicio * 0.30
+                            servicio = servicio - descuento
+                            porcentaje = porcentaje + 30
+                            print("El descuento aplicado fue de 30%")
+                            print("El total a pagar ahora es: ", servicio)
+
+                        if estudiante == "s" or estudiante == "S":
+                            if edad_1 >= 13:
+                                print("Aplicas descuento por ser estudiante y tener mas de 13 años")
+                                descuento = servicio * 0.15
+                                servicio = servicio - descuento
+                                porcentaje = porcentaje + 15
+                                print("El descuento aplicado fue de 15%")
+                                print("El total a pagar ahora es: ", servicio)
+                            else:
+                                    print("Eres estudiante, pero no aplicas descuento por ser menos a 13 años")
+                        
+                        if miembro == "s" or miembro == "S":
+                            print("Aplicas descuento por ser miembro")
+                            descuento = servicio * 0.10
+                            servicio = servicio - descuento
+                            porcentaje = porcentaje + 10
+                            print("El descuento aplicado es 10%")
+                            print("El total a pagar ahora es: ", servicio)
+
+                        if metodo == "e" or metodo =="E":
+                            print("Aplicaste un metodo por pagar en efectivo")
+                            descuento = servicio * 0.05
+                            servicio = servicio - descuento
+                            porcentaje = porcentaje + 5
+                            print("El descuento aplicado fue de 5%")
+                            print("El total a pagar ahora es: ", servicio)
+
+                        # --- AJUSTE FINAL (SIEMPRE) ---
+                        if porcentaje > 60:
+                            print("Tu descuento era de:", porcentaje, "% pero el maximo es 60%")
+
+                            porcentaje = min(porcentaje, 60)
+
+                            descuento = servicio_base * (porcentaje / 100)
+                            servicio = servicio_base - descuento
+
+                            print("Descuento final aplicado:", porcentaje, "%")
+                            print("Monto de descuento final:", descuento)
+                            print("TOTAL A PAGAR:", servicio)
+
+                            acceso_3 = 0
+                            
+                 case 4:
+                      acceso = 0
+                 case 5:
+                    print("todo termino gracias por usar mi programa")
+                    acceso = -1
+                    break 
+                 case _:
+                    print("opcion no valida")
+                    
+        if acceso == -1:
+         break 
+    else:
+          print("Usuario o Contrseña incorrectos")
+          intentos +=1
+
+if intentos >=3:
+    print("Intentos caducados vuelve a intenterlo mas tarde")
