@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    :root {
+        --glass-bg: rgba(255, 255, 255, 0.05);
+        --accent-color: #00f2ff;
+        --card-bg: #1a1a1a;
+    }
+
+    .catalog-header {
+        margin-bottom: 40px;
+    }
+
+    .catalog-header h3 {
+        font-weight: 800;
+        font-size: 2.2rem;
+        background: linear-gradient(45deg, #fff, #888);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -1px;
+    }
+
+    /* Tarjetas estilo Premium */
+    .product-card {
+        background: var(--card-bg);
+        border: 1px solid #2a2a2a;
+        border-radius: 20px;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .product-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--accent-color);
+        box-shadow: 0 15px 35px rgba(0, 242, 255, 0.15);
+    }
+
+    /* Imagen o Placeholder */
+    .img-container {
+        height: 200px;
+        background: linear-gradient(135deg, #222, #111);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .img-container i {
+        color: #333;
+        transition: 0.3s;
+    }
+
+    .product-card:hover .img-container i {
+        color: var(--accent-color);
+        transform: scale(1.2);
+    }
+
+    /* Badge de Categoría */
+    .cat-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: rgba(0,0,0,0.6);
+        backdrop-filter: blur(5px);
+        color: var(--accent-color);
+        border: 1px solid var(--accent-color);
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.7rem;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .product-name {
+        color: #eee;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .price-tag {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 15px;
+        display: block;
+    }
+
+    /* Botón Agregar */
+    .btn-add {
+        background: transparent;
+        border: 1px solid #444;
+        color: #fff;
+        border-radius: 12px;
+        font-weight: bold;
+        padding: 10px;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        text-decoration: none;
+    }
+
+    .btn-add:hover {
+        background: #fff;
+        color: #000;
+        border-color: #fff;
+    }
+
+    .btn-add i {
+        font-size: 0.9rem;
+    }
+</style>
+
+<div class="catalog-header">
+    <div class="d-flex justify-content-between align-items-center">
+        <h3>Explorar Catálogo</h3>
+        <span class="text-muted">{{ productos|length }} Artículos disponibles</span>
+    </div>
+</div>
+
+<div class="row">
+    {% for id, p in productos.items() %}
+    <div class="col-md-3 mb-4">
+        <div class="product-card h-100">
+            <div class="img-container">
+                <span class="cat-badge">{{ p.cat }}</span>
+                <i class="fas fa-box-open fa-4x"></i>
+            </div>
+            
+            <div class="card-body">
+                <h6 class="product-name" title="{{ p.nombre }}">{{ p.nombre }}</h6>
+                <span class="price-tag">${{ "%.2f"|format(p.precio) }}</span>
+                
+                <a href="{{ url_for('agregar', codigo=id) }}" class="btn-add">
+                    <i class="fas fa-plus"></i> AGREGAR AL CARRITO
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
